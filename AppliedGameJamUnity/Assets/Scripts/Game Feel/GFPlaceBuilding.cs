@@ -5,6 +5,8 @@ using UnityEngine;
 public class GFPlaceBuilding : MonoBehaviour {
     // Use this for initialization
     public ParticleSystem system;
+    public AudioSource source;
+    public AudioClip clip;
 	void Start () {
 		
 	}
@@ -13,4 +15,8 @@ public class GFPlaceBuilding : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void Place() {
+        system.Play();
+        source.PlayOneShot(clip);
+    }
 }
