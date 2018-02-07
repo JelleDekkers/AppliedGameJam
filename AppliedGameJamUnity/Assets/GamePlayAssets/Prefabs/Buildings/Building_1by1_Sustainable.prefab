@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4228291843029120}
   - component: {fileID: 95235354515034462}
+  - component: {fileID: 114328907868102774}
   m_Layer: 0
   m_Name: Building_1by1_Sustainable
   m_TagString: Untagged
@@ -1851,3 +1852,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114328907868102774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796004834623406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  emission: 0
+  xSize: 1
+  zSize: 1

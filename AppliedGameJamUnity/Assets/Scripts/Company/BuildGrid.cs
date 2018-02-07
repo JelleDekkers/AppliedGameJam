@@ -31,8 +31,8 @@ namespace CompanyView {
                     Tile t = Instantiate(tilePrefab, new Vector3(x, 0, z), Quaternion.identity, transform);
                     t.name += "(" + x + "," + z + ")";
                     Grid[x, z] = t;
-                    if ((x + z) % 2 == 0)
-                        t.SetColor();
+                    //if ((x + z) % 2 == 0)
+                    //    t.SetColor();
                 }
             }
         }

@@ -8,15 +8,42 @@ namespace CompanyView {
 
         public Building buildingPrefabToPlace;
 
+        private Tile[,] tilesHoveringOver;
+
         private void Update() {
             PlaceMode();
         }
 
         private void PlaceMode() {
-            Tile[,] tilesHoveringOver = GetTilesAtMousePoint();
+            if(tilesHoveringOver != null)
+                RevertTileColorsToBase();
+            tilesHoveringOver = GetTilesAtMousePoint();
 
-            if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver))
+            if (tilesHoveringOver == null)
+                return;
+
+            AdjustTileColors();
+            if (Input.GetMouseButtonDown(0) && CanBePlaced())
                 PlaceBuilding(tilesHoveringOver);
+        }
+
+        private void AdjustTileColors() {
+            foreach (Tile t in tilesHoveringOver) {
+                if (t == null)
+                    continue;
+                if (t.occupant != null)
+                    t.SetColorToOccupied();
+                else
+                    t.SetColorToOpen();
+            }
+        }
+
+        private void RevertTileColorsToBase() {
+            foreach (Tile t in tilesHoveringOver) {
+                if (t == null)
+                    continue;
+                t.SetColorToBase();
+            }
         }
 
         private void PlaceBuilding(Tile[,] tiles) {
@@ -39,28 +66,26 @@ namespace CompanyView {
             Tile[,] tiles = new Tile[buildingPrefabToPlace.xSize, buildingPrefabToPlace.zSize];
 
             // get all tiles necessary for building:
+            IntVector2 coordinate = mouseCoordinate;
             for (int x = 0; x < buildingPrefabToPlace.xSize; x++) {
                 for (int z = 0; z < buildingPrefabToPlace.zSize; z++) {
-                    IntVector2 coordinate = new IntVector2(mouseCoordinate.x + x, mouseCoordinate.z + z);
-                    if (Company.Instance.grid.IsInsideGrid(coordinate.x, coordinate.z)) {
-                        Tile t = Company.Instance.grid.Grid[coordinate.x, coordinate.z];
-                        if (t.occupant != null)
-                            return null;
+                    if (Company.Instance.grid.IsInsideGrid(coordinate.x + x, coordinate.z + z)) {
+                        Tile t = Company.Instance.grid.Grid[coordinate.x + x, coordinate.z + z];
                         tiles[x, z] = t;
-                    }
+                    } 
                 }
             }
              
             return tiles;
         }
 
-        private bool CanBePlaced(Tile[,] tiles) {
-            if (tiles == null)
+        private bool CanBePlaced() {
+            if (tilesHoveringOver == null)
                 return false;
 
-            for (int x = 0; x < tiles.GetLength(0); x++) {
-                for (int z = 0; z < tiles.GetLength(1); z++) {
-                    if (tiles[x, z] == null || tiles[x, z].occupant != null)
+            for (int x = 0; x < tilesHoveringOver.GetLength(0); x++) {
+                for (int z = 0; z < tilesHoveringOver.GetLength(1); z++) {
+                    if (tilesHoveringOver[x, z] == null || tilesHoveringOver[x, z].occupant != null)
                         return false;
                 }
             }
