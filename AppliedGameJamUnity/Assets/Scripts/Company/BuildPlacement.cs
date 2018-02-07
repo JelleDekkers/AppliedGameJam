@@ -55,6 +55,9 @@ namespace CompanyView {
         }
 
         private bool CanBePlaced(Tile[,] tiles) {
+            if (tiles == null)
+                return false;
+
             for (int x = 0; x < tiles.GetLength(0); x++) {
                 for (int z = 0; z < tiles.GetLength(1); z++) {
                     if (tiles[x, z] == null || tiles[x, z].occupant != null)
