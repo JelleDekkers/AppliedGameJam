@@ -8,16 +8,15 @@ using UnityEngine.UI;
 namespace UI.Testing {
     public class TestShowBuilding : MonoBehaviour {
         private Text text;
-        public BuildingSelector selector;
 
         public void Start() {
             text = gameObject.GetComponent<Text>();
         }
 
         public void Update() {
-            if (selector.selectedBuilding != null) {
+            if (BuildingSelector.SelectedBuilding != null) {
 
-                text.text = selector.selectedBuilding.name;
+                text.text = BuildingSelector.SelectedBuilding.name;
             }
             else {
                 text.text = "No building selected";

@@ -7,13 +7,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI {
-    class Building : ScriptableObject {
+    class BuildingScriptable : ScriptableObject {
         public GameObject prefab;
         public Sprite mask;
 
         [MenuItem("Assets/Create/Building")]
         public static void CreateMyAsset() {
-            Building asset = ScriptableObject.CreateInstance<Building>();
+            BuildingScriptable asset = ScriptableObject.CreateInstance<BuildingScriptable>();
 
             AssetDatabase.CreateAsset(asset, "Assets/ScriptableObjects/NewBuilding.asset");
             AssetDatabase.SaveAssets();

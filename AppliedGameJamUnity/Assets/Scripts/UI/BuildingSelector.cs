@@ -4,27 +4,27 @@ using UnityEngine;
 
 
 namespace UI {
-    public class BuildingSelector : MonoBehaviour {
+    public static class BuildingSelector {
 
-        public GameObject selectedBuilding;
+        private static GameObject selectedBuilding;
 
-        // Use this for initialization
-        private void Start() {
+        public static GameObject SelectedBuilding {
+            get {
+                return selectedBuilding;
+            }
 
+            private set {
+                selectedBuilding = value;
+            }
         }
 
-        // Update is called once per frame
-        private void Update() {
-
-        }
-
-        public void SetBuilding( BuildingContainer buildingContainer ) {
+        public static void SetBuilding( BuildingContainer buildingContainer ) {
             
-            if (selectedBuilding == buildingContainer.building) {
-                selectedBuilding = null;
+            if (SelectedBuilding == buildingContainer.building) {
+                SelectedBuilding = null;
             }
             else {
-                selectedBuilding = buildingContainer.building;
+                SelectedBuilding = buildingContainer.building;
             }
         }
     }
