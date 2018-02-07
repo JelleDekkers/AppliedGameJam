@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace UI {
     public class BuildingList : MonoBehaviour {
-        public GameObject[] buildingPrefabs;
+        public ScriptableObject[] buildingPrefabs;
 
         // Use this for initialization
         void Start() {
-
+            
         }
 
         // Update is called once per frame
