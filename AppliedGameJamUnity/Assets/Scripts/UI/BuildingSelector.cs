@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingSelector : MonoBehaviour {
+    private GameObject selectedBuilding;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject SelectedBuilding {
+        get {
+            return selectedBuilding;
+        }
+
+        set {
+            selectedBuilding = value;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
