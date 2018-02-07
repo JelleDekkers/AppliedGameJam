@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace UI {
     public class BuildingList : MonoBehaviour {
         public GameObject buttonPrefab;
-        public GameObject[] buildingPrefabs;
+        public Building[] buildingPrefabs;
         public RectTransform myRect;
         private AudioSource audioSource;
         private AudioClip clipSelect;
@@ -19,7 +19,7 @@ namespace UI {
             for(int i = 0 ; i < buildingPrefabs.Length ; i++) {
                 // CREATE BUTTON WITH SCRIPTABLE OBJECT PROPERTIES
                 GameObject obj = Instantiate<GameObject>(buttonPrefab);
-                obj.transform.parent = gameObject.transform;
+                obj.transform.SetParent(gameObject.transform);
                 obj.GetComponent<Image>().sprite = buildingPrefabs[i].GetComponent<Image>().sprite;
                 obj.GetComponent<RectTransform>().position = new Vector2(48 + (i * 100), 48);
                 obj.GetComponent<BuildingContainer>().building = buildingPrefabs[i];

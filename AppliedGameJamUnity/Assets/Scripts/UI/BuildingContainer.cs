@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingContainer : MonoBehaviour {
-    public GameObject building;
+    public Building building;
 
 	// Use this for initialization
 	void Start () {

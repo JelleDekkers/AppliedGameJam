@@ -6,9 +6,9 @@ using UnityEngine;
 namespace UI {
     public static class BuildingSelector {
 
-        private static GameObject selectedBuilding;
+        private static Building selectedBuilding;
 
-        public static GameObject SelectedBuilding {
+        public static Building SelectedBuilding {
             get {
                 return selectedBuilding;
             }

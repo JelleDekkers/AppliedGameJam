@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23046593878352184}
   - component: {fileID: 222557169065223344}
   - component: {fileID: 114421105397376086}
+  - component: {fileID: 114667078056209322}
   m_Layer: 0
   m_Name: Sustainable Demo Building
   m_TagString: Untagged
@@ -111,6 +112,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114667078056209322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163677620712124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  emission: 0
+  xSize: 0
+  zSize: 0
 --- !u!222 &222557169065223344
 CanvasRenderer:
   m_ObjectHideFlags: 1

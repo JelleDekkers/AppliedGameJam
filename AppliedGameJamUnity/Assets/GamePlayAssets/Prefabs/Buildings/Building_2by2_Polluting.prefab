@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 4789767631754180}
   - component: {fileID: 33965950716668482}
   - component: {fileID: 23777619187839066}
-  - component: {fileID: 114054617575109760}
   m_Layer: 0
   m_Name: polySurface14
   m_TagString: Untagged
@@ -242,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4496157138972788}
   - component: {fileID: 95848558422321092}
+  - component: {fileID: 114054617575109760}
   m_Layer: 0
   m_Name: Building_2by2_Polluting
   m_TagString: Untagged
@@ -4083,7 +4083,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114054617575109760
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193121834266092}
