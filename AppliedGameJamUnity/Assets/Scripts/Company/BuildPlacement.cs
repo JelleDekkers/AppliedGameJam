@@ -6,12 +6,11 @@ namespace CompanyView {
 
     public class BuildPlacement : MonoBehaviour {
 
-        public Building buildingPrefabToPlace;
-
         private Tile[,] tilesHoveringOver;
 
         private void Update() {
-            PlaceMode();
+            if(BuildingSelector.SelectedBuilding != null)
+                PlaceMode();
         }
 
         private void PlaceMode() {
@@ -47,28 +46,28 @@ namespace CompanyView {
         }
 
         private void PlaceBuilding(Tile[,] tiles) {
-            Building building = Instantiate(buildingPrefabToPlace, tiles[0, 0].transform.position, Quaternion.identity);
+            Building building = Instantiate(BuildingSelector.SelectedBuilding, tiles[0, 0].transform.position, Quaternion.identity);
 
             foreach (Tile t in tiles)
                 t.occupant = building;
 
             Vector3 halfSize = Vector3.zero;
-            if (buildingPrefabToPlace.xSize > 1)
-                halfSize.x = (int)(buildingPrefabToPlace.xSize / 2) - Tile.SIZE.x / 2;
-            if(buildingPrefabToPlace.zSize > 1)
-                halfSize.z = (int)(buildingPrefabToPlace.zSize / 2) - Tile.SIZE.z / 2;
+            if (BuildingSelector.SelectedBuilding.xSize > 1)
+                halfSize.x = (int)(BuildingSelector.SelectedBuilding.xSize / 2) - Tile.SIZE.x / 2;
+            if(BuildingSelector.SelectedBuilding.zSize > 1)
+                halfSize.z = (int)(BuildingSelector.SelectedBuilding.zSize / 2) - Tile.SIZE.z / 2;
             building.transform.position += halfSize;
         }
 
         private Tile[,] GetTilesAtMousePoint() {
             Vector3 mousePoint = RaycastHelper.GetMousePositionInScene();
             IntVector2 mouseCoordinate = new IntVector2((int)RoundDownToGridCoordinate(mousePoint).x, (int)RoundDownToGridCoordinate(mousePoint).y);
-            Tile[,] tiles = new Tile[buildingPrefabToPlace.xSize, buildingPrefabToPlace.zSize];
+            Tile[,] tiles = new Tile[BuildingSelector.SelectedBuilding.xSize, BuildingSelector.SelectedBuilding.zSize];
 
             // get all tiles necessary for building:
             IntVector2 coordinate = mouseCoordinate;
-            for (int x = 0; x < buildingPrefabToPlace.xSize; x++) {
-                for (int z = 0; z < buildingPrefabToPlace.zSize; z++) {
+            for (int x = 0; x < BuildingSelector.SelectedBuilding.xSize; x++) {
+                for (int z = 0; z < BuildingSelector.SelectedBuilding.zSize; z++) {
                     if (Company.Instance.grid.IsInsideGrid(coordinate.x + x, coordinate.z + z)) {
                         Tile t = Company.Instance.grid.Grid[coordinate.x + x, coordinate.z + z];
                         tiles[x, z] = t;

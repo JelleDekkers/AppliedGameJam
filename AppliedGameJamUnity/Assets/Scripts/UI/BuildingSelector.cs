@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace UI {
+namespace CompanyView {
+
     public static class BuildingSelector {
 
         private static Building selectedBuilding;

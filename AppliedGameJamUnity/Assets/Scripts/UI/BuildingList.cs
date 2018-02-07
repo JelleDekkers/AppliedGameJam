@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI {
+namespace CompanyView.UI {
     public class BuildingList : MonoBehaviour {
         public GameObject buttonPrefab;
         public Building[] buildingPrefabs;
