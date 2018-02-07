@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    private Color openColor, occupiedColor;
+    private Color baseColor;
+
+    public Building occupant;
+
+    public static readonly Vector3 SIZE = new Vector3(1, 0.1f, 1);
+
+    public void SetColor() {
+        GetComponent<Renderer>().material.color = openColor;
+    }
 }
