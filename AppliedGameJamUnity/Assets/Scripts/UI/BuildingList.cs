@@ -8,14 +8,13 @@ namespace UI {
         public GameObject buttonPrefab;
         public Building[] buildingPrefabs;
         public RectTransform myRect;
-        private AudioSource audioSource;
 
         public float scrollSpeed = 96;
 
 
         // Use this for initialization
         private void Start() {
-            audioSource = GetComponent<AudioSource>();
+            //audioSource = GetComponent<AudioSource>();
             for(int i = 0 ; i < buildingPrefabs.Length ; i++) {
                 // CREATE BUTTON WITH SCRIPTABLE OBJECT PROPERTIES
                 GameObject obj = Instantiate<GameObject>(buttonPrefab);
