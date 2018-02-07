@@ -20,7 +20,7 @@ namespace UI {
                 // CREATE BUTTON WITH SCRIPTABLE OBJECT PROPERTIES
                 GameObject obj = Instantiate<GameObject>(buttonPrefab);
                 obj.transform.SetParent(gameObject.transform);
-                obj.GetComponent<Image>().sprite = buildingPrefabs[i].GetComponent<Image>().sprite;
+                obj.GetComponent<Image>().sprite = buildingPrefabs[i].gameObject.GetComponent<Image>().sprite;
                 obj.GetComponent<RectTransform>().position = new Vector2(48 + (i * 100), 48);
                 obj.GetComponent<BuildingContainer>().building = buildingPrefabs[i];
                 obj.GetComponent<Button>().onClick.AddListener(delegate () { Select(obj.GetComponent<BuildingContainer>()); });
