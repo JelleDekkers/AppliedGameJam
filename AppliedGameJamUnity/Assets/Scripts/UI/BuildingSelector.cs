@@ -19,7 +19,13 @@ namespace UI {
         }
 
         public void SetBuilding( BuildingContainer buildingContainer ) {
-            selectedBuilding = buildingContainer.building;
+            
+            if (selectedBuilding == buildingContainer.building) {
+                selectedBuilding = null;
+            }
+            else {
+                selectedBuilding = buildingContainer.building;
+            }
         }
     }
 }

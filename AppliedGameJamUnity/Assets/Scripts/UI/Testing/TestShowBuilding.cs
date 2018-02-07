@@ -19,6 +19,9 @@ namespace UI.Testing {
 
                 text.text = selector.selectedBuilding.name;
             }
+            else {
+                text.text = "No building selected";
+            }
         }
     }
 }

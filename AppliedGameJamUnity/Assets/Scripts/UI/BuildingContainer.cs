@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UI {
-    public class BuildingContainer : MonoBehaviour {
-        public GameObject building;
+public class BuildingContainer : MonoBehaviour {
+    public GameObject building;
 
-        // Use this for initialization
-        void Start() {
-
-        }
-
-        // Update is called once per frame
-        void Update() {
-
-        }
-    }
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }
