@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingSelector : MonoBehaviour {
-    private GameObject selectedBuilding;
 
-    public GameObject SelectedBuilding {
-        get {
-            return selectedBuilding;
+namespace UI {
+    public class BuildingSelector : MonoBehaviour {
+
+        public GameObject selectedBuilding;
+
+        // Use this for initialization
+        private void Start() {
+
         }
 
-        set {
-            selectedBuilding = value;
+        // Update is called once per frame
+        private void Update() {
+
+        }
+
+        public void SetBuilding( BuildingContainer buildingContainer ) {
+            selectedBuilding = buildingContainer.building;
         }
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
