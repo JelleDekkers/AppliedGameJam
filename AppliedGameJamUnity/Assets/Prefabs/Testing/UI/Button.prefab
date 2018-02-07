@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &114120986110833388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,7 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ffbbd31ecfc92448b8f58ddd383c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 1163677620712124, guid: 6a7bcd15d60bff24d84aa8ec65517766, type: 2}
+  selectedPrefab: {fileID: 1809345381404220}
+  selected: 0
+  building: {fileID: 0}
 --- !u!114 &114959212301245204
 MonoBehaviour:
   m_ObjectHideFlags: 1

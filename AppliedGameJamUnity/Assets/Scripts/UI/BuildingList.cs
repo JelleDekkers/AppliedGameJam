@@ -13,6 +13,7 @@ namespace UI {
         private AudioClip clipDeselect;
         public float scrollSpeed = 96;
 
+
         // Use this for initialization
         private void Start() {
             audioSource = GetComponent<AudioSource>();
@@ -33,7 +34,7 @@ namespace UI {
         // Update is called once per frame
         private void Update() {
             if (Input.GetAxis("Mouse ScrollWheel") > 0) {
-                myRect.position += new Vector3(scrollSpeed,0,0);
+                myRect.position += new Vector3(scrollSpeed, 0, 0);
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0) {
                 myRect.position -= new Vector3(scrollSpeed, 0, 0);
@@ -42,7 +43,6 @@ namespace UI {
         private void Select(BuildingContainer building) {
             if(BuildingSelector.SelectedBuilding == building) {
                 audioSource.PlayOneShot(clipSelect);
-
             }
             else {
                 audioSource.PlayOneShot(clipDeselect);
