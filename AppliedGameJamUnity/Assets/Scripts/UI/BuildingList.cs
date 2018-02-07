@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace UI {
     public class BuildingList : MonoBehaviour {
         public GameObject buttonPrefab;
-        public ScriptableObject[] buildingPrefabs;
+        public GameObject[] buildingPrefabs;
 
         // Use this for initialization
         private void Start() {
@@ -15,6 +15,7 @@ namespace UI {
                 GameObject obj = Instantiate<GameObject>(buttonPrefab);
                 obj.transform.parent = gameObject.transform;
                 obj.GetComponent<RectTransform>().position = new Vector2(48 + (i * 100), 48);
+                obj.GetComponent<BuildingContainer>().building = buildingPrefabs[i];
             }
         }
 

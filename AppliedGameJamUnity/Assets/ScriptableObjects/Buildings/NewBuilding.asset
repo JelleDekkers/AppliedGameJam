@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f33d53ae9b0c0949bbbcffa310956f8, type: 3}
   m_Name: NewBuilding
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  mask: {fileID: 0}
+  prefab: {fileID: 1163677620712124, guid: 6a7bcd15d60bff24d84aa8ec65517766, type: 2}
+  mask: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
