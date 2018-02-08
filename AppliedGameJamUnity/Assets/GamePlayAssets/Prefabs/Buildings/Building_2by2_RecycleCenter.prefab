@@ -1950,6 +1950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4114364672203430}
   - component: {fileID: 95502793046807756}
+  - component: {fileID: 114243427639314696}
   m_Layer: 0
   m_Name: Building_2by2_RecycleCenter
   m_TagString: Untagged
@@ -7668,6 +7669,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114243427639314696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907646756107720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thumbnail: {fileID: 0}
+  thumbnailClicked: {fileID: 0}
+  cost:
+    resourceType: 2
+    amount: 10
+  xSize: 2
+  zSize: 2
+  emissionPerProduction: 0
+  productionPerCycle:
+    resourceType: 1
+    amount: 10
+  productionTimeInSeconds: 20
 --- !u!198 &198533167923019464
 ParticleSystem:
   m_ObjectHideFlags: 1

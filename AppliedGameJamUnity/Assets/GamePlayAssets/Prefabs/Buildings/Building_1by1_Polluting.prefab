@@ -183,8 +183,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4341575036007876}
+  - component: {fileID: 114311666315614894}
   m_Layer: 0
-  m_Name: Building_1by1_Polluting 1
+  m_Name: Building_1by1_Polluting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1726,3 +1727,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484665112027684}
   m_Mesh: {fileID: 4300010, guid: e84aa885860b4b04f841130cf31fc254, type: 3}
+--- !u!114 &114311666315614894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211474286791068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thumbnail: {fileID: 21300000, guid: 9b43c89138341e44b84843fae923709b, type: 3}
+  thumbnailClicked: {fileID: 0}
+  cost:
+    resourceType: 0
+    amount: 20
+  xSize: 1
+  zSize: 1
+  emissionPerProduction: 20
+  productionPerCycle:
+    resourceType: 0
+    amount: 20
+  productionTimeInSeconds: 10

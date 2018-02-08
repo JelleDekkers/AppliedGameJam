@@ -4094,10 +4094,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thumbnail: {fileID: 21300000, guid: aaca5fe340fa6dd4b96697916e039891, type: 3}
   thumbnailClicked: {fileID: 21300000, guid: 8cb578738117c2c46bad2527cbc7dceb, type: 3}
-  cost: 2
-  emission: 0
+  cost:
+    resourceType: 0
+    amount: 20
   xSize: 2
   zSize: 2
+  emissionPerProduction: 0
+  productionPerCycle:
+    resourceType: 0
+    amount: 20
+  productionTimeInSeconds: 15
 --- !u!198 &198594548498393696
 ParticleSystem:
   m_ObjectHideFlags: 1
