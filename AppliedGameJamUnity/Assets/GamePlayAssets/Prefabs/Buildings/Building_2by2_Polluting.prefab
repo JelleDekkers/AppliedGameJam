@@ -4099,7 +4099,7 @@ MonoBehaviour:
     amount: 20
   xSize: 2
   zSize: 2
-  emissionPerProduction: 0
+  emissionPerProduction: 20
   productionPerCycle:
     resourceType: 0
     amount: 20

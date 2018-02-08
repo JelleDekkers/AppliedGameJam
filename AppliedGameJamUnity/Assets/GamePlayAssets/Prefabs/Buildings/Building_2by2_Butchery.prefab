@@ -6015,7 +6015,7 @@ MonoBehaviour:
     amount: 20
   xSize: 2
   zSize: 2
-  emissionPerProduction: 20
+  emissionPerProduction: 15
   productionPerCycle:
     resourceType: 0
     amount: 10

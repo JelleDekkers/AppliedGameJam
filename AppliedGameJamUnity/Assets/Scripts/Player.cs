@@ -66,7 +66,7 @@ public class Player : MonoBehaviour {
 
     private void OnGUI() {
         GUI.color = Color.black;
-        GUI.Label(new Rect(10, 20, 1000, 20), "Poluttion Produced: " + pollutionProduced);
+        GUI.Label(new Rect(10, 20, 1000, 20), "Pollution Produced: " + pollutionProduced);
         GUI.Label(new Rect(10, 35, 1000, 20), "World Pollution: " + WorldStats.Instance.WorldPollution);
         GUI.Label(new Rect(10, 50, 1000, 20), "Avg World Temperature " + WorldStats.Instance.AverageWorldTemperature + " / " + WorldStats.Instance.TemperatureMaxGameOverRate);
 
