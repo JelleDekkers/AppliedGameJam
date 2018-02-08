@@ -48,7 +48,10 @@ namespace CompanyView {
         }
 
         private void PlaceMode() {
-            if(tilesHoveringOver != null)
+            if (destroyMode)
+                destroyMode = false;
+
+            if (tilesHoveringOver != null)
                 RevertTileColorsToBase();
             tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(), new IntVector2(BuildingSelector.SelectedBuilding.xSize, BuildingSelector.SelectedBuilding.zSize));
 
@@ -58,19 +61,17 @@ namespace CompanyView {
             AdjustTileColors();
             if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver))
                 PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, false);
-
-            if (destroyMode)
-                destroyMode = false;
         }
 
         private void DestroyMode() {
             tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(), new IntVector2(1, 1));
-            if (Input.GetMouseButtonDown(0) && tilesHoveringOver[0, 0].occupant != null)
+            if (Input.GetMouseButtonDown(0) && tilesHoveringOver != null && tilesHoveringOver[0, 0].occupant != null)
                 DestroyBuilding(tilesHoveringOver[0, 0]);
         }
 
         private void DestroyBuilding(Tile hoveringOver) {
             Building b = tilesHoveringOver[0, 0].occupant;
+            Player.Instance.RemoveBuilding(b);
             Destroy(b.gameObject);
         }
 
@@ -106,6 +107,7 @@ namespace CompanyView {
                 halfSize.z = (int)(building.zSize / 2) - Tile.SIZE.z / 2;
             building.transform.position += halfSize;
 
+            Player.Instance.AddBuilding(building);
 
             if (!fromStart) {
                 Player.Instance.money -= building.cost;

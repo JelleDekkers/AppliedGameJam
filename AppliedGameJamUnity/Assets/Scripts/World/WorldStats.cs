@@ -28,10 +28,6 @@ public class WorldStats : MonoBehaviour {
         AverageWorldTemperature = WorldPollution * TemperatureIncreasePerPollution + AverageWorldTemperatureStart;
 
         if (AverageWorldTemperature > TemperatureGameOverRate)
-            GameOver();
-    }
-
-    private void GameOver() {
-        Debug.Log("game over");
+            GameManager.GameWon();
     }
 }

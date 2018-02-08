@@ -16,8 +16,27 @@ public class Player : MonoBehaviour {
     public float money;
     public float pollutionProduced;
 
+    
+    public List<Building> Buildings = new List<Building>();
+
     private void Start() {
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void AddBuilding(Building b) {
+        Buildings.Add(b);
+    }
+
+    public void RemoveBuilding(Building b) {
+        Buildings.Remove(b);
+        int unsustainableBuildingsCount = 0;
+        foreach(Building building in Buildings) {
+            if (building.emissionPerProduction > 0)
+                unsustainableBuildingsCount++;
+        }
+
+        if (unsustainableBuildingsCount == 0)
+            GameManager.GameWon();
     }
 
     private void OnGUI() {
