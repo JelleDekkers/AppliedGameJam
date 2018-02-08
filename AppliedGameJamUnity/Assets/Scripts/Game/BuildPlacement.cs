@@ -9,13 +9,9 @@ namespace CompanyView {
         private Tile[,] tilesHoveringOver;
 
         [SerializeField]
-        private AudioClip soundOnPlacement;
-        [SerializeField]
-        private new ParticleSystem particleSystem;
-        [SerializeField]
-        private AudioSource audioSource;
-        [SerializeField]
         private bool placeRandomBuildingsAtStart = true;
+        [SerializeField]
+        private PlacementEffect effectHandler;
 
         public Building[] starterBuildings;
 
@@ -112,9 +108,7 @@ namespace CompanyView {
 
             if (!fromStart) {
                 Player.Instance.RemoveResources(building.cost);
-                audioSource.PlayOneShot(soundOnPlacement);
-                //transform.position = building.transform.position;
-                particleSystem.Play();
+                effectHandler.Activate(building.transform.position);
                 GameCam.Instance.Shake();
             }
         }
