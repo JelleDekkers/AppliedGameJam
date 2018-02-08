@@ -19,6 +19,8 @@ namespace CompanyView {
 
         public Building[] starterBuildings;
 
+        public bool destroyMode;
+
         private void Start() {
             if(placeRandomBuildingsAtStart)
                 PlaceRandomBuildings();   
@@ -39,8 +41,10 @@ namespace CompanyView {
         }
 
         private void Update() {
-            if(BuildingSelector.SelectedBuilding != null)
+            if (BuildingSelector.SelectedBuilding != null)
                 PlaceMode();
+            else if (destroyMode)
+                DestroyMode();
         }
 
         private void PlaceMode() {
@@ -54,6 +58,20 @@ namespace CompanyView {
             AdjustTileColors();
             if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver))
                 PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, false);
+
+            if (destroyMode)
+                destroyMode = false;
+        }
+
+        private void DestroyMode() {
+            tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(), new IntVector2(1, 1));
+            if (Input.GetMouseButtonDown(0) && tilesHoveringOver[0, 0].occupant != null)
+                DestroyBuilding(tilesHoveringOver[0, 0]);
+        }
+
+        private void DestroyBuilding(Tile hoveringOver) {
+            Building b = tilesHoveringOver[0, 0].occupant;
+            Destroy(b.gameObject);
         }
 
         private void AdjustTileColors() {
