@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: c06aed6da0b545b4c969d31b45b9b3e9
+guid: e84aa885860b4b04f841130cf31fc254
+timeCreated: 1518016588
+licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -30,11 +32,11 @@ ModelImporter:
     100048: polySurface29
     100050: polySurface30
     100052: polySurface31
-    100054: TE5
-    100056: transform40
-    100058: transform41
-    100060: transform42
-    100062: transform43
+    100054: transform40
+    100056: transform41
+    100058: transform42
+    100060: transform43
+    100062: TE5
     400000: //RootNode
     400002: group6
     400004: group7
@@ -62,19 +64,19 @@ ModelImporter:
     400048: polySurface29
     400050: polySurface30
     400052: polySurface31
-    400054: TE5
-    400056: transform40
-    400058: transform41
-    400060: transform42
-    400062: transform43
-    2100000: lambert13
-    2100002: lambert1
-    2100004: lambert31
-    2100006: lambert34
-    2100008: lambert32
-    2100010: lambert33
-    2100012: lambert14
-    2100014: lambert15
+    400054: transform40
+    400056: transform41
+    400058: transform42
+    400060: transform43
+    400062: TE5
+    2100000: lambert1
+    2100002: lambert31
+    2100004: lambert34
+    2100006: lambert32
+    2100008: lambert33
+    2100010: lambert14
+    2100012: lambert15
+    2100014: lambert13
     2300000: pCube197
     2300002: pCube198
     2300004: pCube199
@@ -115,26 +117,26 @@ ModelImporter:
     3300034: polySurface30
     3300036: polySurface31
     3300038: TE5
-    4300000: TE5
-    4300002: polySurface29
-    4300004: polySurface30
-    4300006: polySurface20
-    4300008: polySurface31
-    4300010: pCube197
-    4300012: pCube198
-    4300014: pCube199
-    4300016: pCube200
-    4300018: pCube201
-    4300020: pCube202
-    4300022: pCube203
-    4300024: pCube204
-    4300026: pCube205
-    4300028: pCube206
-    4300030: pCube207
-    4300032: pCube208
-    4300034: pCube209
-    4300036: pCube210
-    4300038: pCube211
+    4300000: polySurface29
+    4300002: polySurface30
+    4300004: polySurface20
+    4300006: polySurface31
+    4300008: pCube197
+    4300010: pCube198
+    4300012: pCube199
+    4300014: pCube200
+    4300016: pCube201
+    4300018: pCube202
+    4300020: pCube203
+    4300022: pCube204
+    4300024: pCube205
+    4300026: pCube206
+    4300028: pCube207
+    4300030: pCube208
+    4300032: pCube209
+    4300034: pCube210
+    4300036: pCube211
+    4300038: TE5
     9500000: //RootNode
   externalObjects: {}
   materials:
