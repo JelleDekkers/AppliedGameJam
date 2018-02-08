@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace CompanyView {
 
+    public enum BuildMode {
+        Create,
+        Destroy
+    }
+
     public class BuildPlacement : MonoBehaviour {
 
         private Tile[,] tilesHoveringOver;
@@ -14,12 +19,13 @@ namespace CompanyView {
         private PlacementEffect effectHandler;
 
         public Building[] starterBuildings;
-
-        public bool destroyMode;
+        public BuildMode buildMode;
 
         private void Start() {
             if(placeRandomBuildingsAtStart)
                 PlaceRandomBuildings();
+
+            BuildingSelector.OnBuildingSelected += () => { buildMode = BuildMode.Create; };
         }
 
         private void PlaceRandomBuildings() {
@@ -37,19 +43,31 @@ namespace CompanyView {
         }
 
         private void Update() {
-            if (BuildingSelector.SelectedBuilding != null)
-                PlaceMode();
-            else if (destroyMode)
-                DestroyMode();
+            switch(buildMode) {
+                case BuildMode.Create:
+                    PlaceMode();
+                    break;
+                case BuildMode.Destroy:
+                    DestroyMode();
+                    break;
+            }
+        }
+
+        public void ToggleMode() {
+            if (buildMode == BuildMode.Create)
+                buildMode = BuildMode.Destroy;
+            else
+                buildMode = BuildMode.Create;
         }
 
         private void PlaceMode() {
-            if (destroyMode)
-                destroyMode = false;
+            if (BuildingSelector.SelectedBuilding == null)
+                return;
 
             if (tilesHoveringOver != null)
                 RevertTileColorsToBase();
-            tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(), new IntVector2(BuildingSelector.SelectedBuilding.xSize, BuildingSelector.SelectedBuilding.zSize));
+            bool isHitting = false;
+            tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(out isHitting), new IntVector2(BuildingSelector.SelectedBuilding.xSize, BuildingSelector.SelectedBuilding.zSize));
 
             if (tilesHoveringOver == null)
                 return;
@@ -60,9 +78,19 @@ namespace CompanyView {
         }
 
         private void DestroyMode() {
-            tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(), new IntVector2(1, 1));
-            if (Input.GetMouseButtonDown(0) && tilesHoveringOver != null && tilesHoveringOver[0, 0].occupant != null)
-                DestroyBuilding(tilesHoveringOver[0, 0]);
+            BuildingSelector.SetToNull();
+            bool isHitting = true;
+            RaycastHelper.GetMousePositionInScene(out isHitting);
+
+            if (isHitting == false)
+                return;
+            try {
+                tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(out isHitting), new IntVector2(1, 1));
+                if (Input.GetMouseButtonDown(0) && tilesHoveringOver != null && tilesHoveringOver[0, 0].occupant != null)
+                    DestroyBuilding(tilesHoveringOver[0, 0]);
+            }catch {
+
+            }
         }
 
         private void DestroyBuilding(Tile hoveringOver) {

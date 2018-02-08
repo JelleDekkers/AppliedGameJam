@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
 
 namespace CompanyView {
@@ -21,7 +19,12 @@ namespace CompanyView {
             }
         }
 
+        public static Action OnBuildingSelected;
+
         public static void SetBuilding( BuildingContainer buildingContainer ) {
+            if (OnBuildingSelected != null)
+                OnBuildingSelected.Invoke();
+
             if(oldBuilding != null)oldBuilding.selected = false;
             
             if (SelectedBuilding == buildingContainer.building) {
@@ -33,6 +36,11 @@ namespace CompanyView {
                 buildingContainer.selected = true;
             }
             oldBuilding = buildingContainer;
+        }
+
+        public static void SetToNull() {
+            SelectedBuilding = null;
+            oldBuilding = null;
         }
     }
 }

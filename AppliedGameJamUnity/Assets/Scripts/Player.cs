@@ -17,7 +17,6 @@ public class Player : MonoBehaviour {
 
     public GameResource[] inventory;
 
-    [HideInInspector]
     public List<Building> Buildings = new List<Building>();
 
     private void Start() {
