@@ -15,8 +15,6 @@ namespace CompanyView {
             }
         }
 
-        public List<Building> buildings = new List<Building>();
-
         [Header("References")]
         public BuildGrid grid;
     }

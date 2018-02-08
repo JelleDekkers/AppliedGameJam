@@ -17,7 +17,7 @@ public class WorldStats : MonoBehaviour {
     public float AverageWorldTemperature;
     public float AverageWorldTemperatureStart = 20f;
     public float TemperatureIncreasePerPollution = 0.01f;
-    public float TemperatureGameOverRate = 40f;
+    public float TemperatureMaxGameOverRate = 40f;
 
     private void Start() {
         DontDestroyOnLoad(gameObject);
@@ -27,7 +27,7 @@ public class WorldStats : MonoBehaviour {
     private void Update() {
         AverageWorldTemperature = WorldPollution * TemperatureIncreasePerPollution + AverageWorldTemperatureStart;
 
-        if (AverageWorldTemperature > TemperatureGameOverRate)
+        if (AverageWorldTemperature > TemperatureMaxGameOverRate)
             GameManager.GameWon();
     }
 }
