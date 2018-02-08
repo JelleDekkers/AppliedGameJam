@@ -96,6 +96,7 @@ namespace CompanyView {
 
         private void PlaceBuilding(Building buildingPrefab, Tile[,] tiles, bool fromStart) {
             Building building = Instantiate(buildingPrefab, tiles[0, 0].transform.position, Quaternion.identity);
+            building.transform.SetParent(transform);
 
             foreach (Tile t in tiles)
                 t.occupant = building;
