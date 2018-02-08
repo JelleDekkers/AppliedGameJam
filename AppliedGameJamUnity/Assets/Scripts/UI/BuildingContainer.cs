@@ -46,7 +46,7 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
         }
         else if (!selected && selectedPrefab.activeSelf) {
             selectedPrefab.SetActive(false);
-            audioSource.PlayOneShot(clipDeselect);
+            audioSource.PlayOneShot(clipSelect);
         }
     }
 
