@@ -14,6 +14,7 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
     public Sprite sprite;
     public Sprite clickedSprite;
 
+    public Text costTxt, productionTxt;
 
     private Button button;
     private AudioSource audioSource;
@@ -27,8 +28,8 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
         button = GetComponent<Button>();
         GetComponent<Image>().sprite = sprite;
 
-        Text text = statPrefab.GetComponentInChildren<Text>();
-        text.text = "Cost : $" + building.cost + ".-";
+        costTxt.text = "Cost: " + building.cost.amount + " " + building.cost.resourceType.ToString();
+        productionTxt.text = "Produces: " + building.productionPerCycle.amount + " " + building.productionPerCycle.resourceType.ToString();
         SpriteState spriteState;
         spriteState.pressedSprite = clickedSprite;
         button.spriteState = spriteState;
