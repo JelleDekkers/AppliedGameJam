@@ -32,10 +32,7 @@ public class GameCam : MonoBehaviour {
         if (Input.GetMouseButton(0)) {
             float horizontal = Input.GetAxis("Mouse X") / 2 + Input.GetAxis("Mouse Y") / 2;
             float vertical = Input.GetAxis("Mouse X") / 2 - Input.GetAxis("Mouse Y") / 2;
-            transform.Translate(-horizontal * movementSpeed * Time.deltaTime, 
-                                0, 
-                                -vertical * movementSpeed * -Time.deltaTime, 
-                                Space.World);
+            transform.Translate(-horizontal * movementSpeed * Time.deltaTime, 0, -vertical * movementSpeed * -Time.deltaTime, Space.World);
         }
     }
 }

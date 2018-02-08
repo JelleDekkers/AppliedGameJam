@@ -2,8 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Player {
+public class Player : MonoBehaviour {
 
-    public static float money;
-    public static float pollutionProduced;
+    private static Player instance;
+    public static Player Instance {
+        get {
+            if (instance == null)
+                instance = FindObjectOfType<Player>();
+            return instance;
+        }
+    }
+
+    public float money;
+    public float pollutionProduced;
+
+    private void Start() {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnGUI() {
+        GUI.color = Color.black;
+        GUI.Label(new Rect(10, 10, 1000, 20), "Money: " + money);
+        GUI.Label(new Rect(10, 30, 1000, 20), "Poluttion Produced: " + pollutionProduced);
+        GUI.Label(new Rect(10, 50, 1000, 20), "World Pollution: " + WorldStats.Instance.WorldPollution);
+        GUI.Label(new Rect(10, 70, 1000, 20), "Avg World Temperature " + WorldStats.Instance.AverageWorldTemperature);
+    }
 }

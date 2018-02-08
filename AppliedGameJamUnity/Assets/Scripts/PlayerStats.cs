@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour {
     public float money, pollutionProduced;
 
     public void Update() {
-        money = Player.money;
-        pollutionProduced = Player.pollutionProduced;
+        money = Player.Instance.money;
+        pollutionProduced = Player.Instance.pollutionProduced;
     }
 }

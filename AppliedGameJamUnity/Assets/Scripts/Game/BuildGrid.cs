@@ -17,7 +17,7 @@ namespace CompanyView {
 
         public bool showGridLines;
 
-        private void Start() {
+        private void Awake() {
             Fill();
         }
 

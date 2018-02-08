@@ -14,6 +14,29 @@ namespace CompanyView {
         private new ParticleSystem particleSystem;
         [SerializeField]
         private AudioSource audioSource;
+        [SerializeField]
+        private bool placeRandomBuildingsAtStart = true;
+
+        public Building[] starterBuildings;
+
+        private void Start() {
+            if(placeRandomBuildingsAtStart)
+                PlaceRandomBuildings();   
+        }
+
+        private void PlaceRandomBuildings() {
+            IntVector2 gridSize = new IntVector2(Company.Instance.grid.Grid.GetLength(0), Company.Instance.grid.Grid.GetLength(1));
+            for(int i = 0; i < starterBuildings.Length; i++) {
+
+                Vector3 rndPos = new Vector3(Random.Range(0, gridSize.x - 1), 0, Random.Range(0, gridSize.z - 1));
+
+                Tile[,] tilesNeeded = GetTilesAt(rndPos, new IntVector2(starterBuildings[i].xSize, starterBuildings[i].zSize));
+                if (CanBePlaced(tilesNeeded))
+                    PlaceBuilding(starterBuildings[i], tilesNeeded, false);
+                else
+                    i--;
+            }
+        }
 
         private void Update() {
             if(BuildingSelector.SelectedBuilding != null)
@@ -23,14 +46,14 @@ namespace CompanyView {
         private void PlaceMode() {
             if(tilesHoveringOver != null)
                 RevertTileColorsToBase();
-            tilesHoveringOver = GetTilesAtMousePoint();
+            tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(), new IntVector2(BuildingSelector.SelectedBuilding.xSize, BuildingSelector.SelectedBuilding.zSize));
 
             if (tilesHoveringOver == null)
                 return;
 
             AdjustTileColors();
-            if (Input.GetMouseButtonDown(0) && CanBePlaced())
-                PlaceBuilding(tilesHoveringOver);
+            if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver))
+                PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, true);
         }
 
         private void AdjustTileColors() {
@@ -52,38 +75,39 @@ namespace CompanyView {
             }
         }
 
-        private void PlaceBuilding(Tile[,] tiles) {
-            Building building = Instantiate(BuildingSelector.SelectedBuilding, tiles[0, 0].transform.position, Quaternion.identity);
+        private void PlaceBuilding(Building buildingPrefab, Tile[,] tiles, bool useEffects) {
+            Building building = Instantiate(buildingPrefab, tiles[0, 0].transform.position, Quaternion.identity);
 
             foreach (Tile t in tiles)
                 t.occupant = building;
 
             Vector3 halfSize = Vector3.zero;
-            if (BuildingSelector.SelectedBuilding.xSize > 1)
-                halfSize.x = (int)(BuildingSelector.SelectedBuilding.xSize / 2) - Tile.SIZE.x / 2;
-            if(BuildingSelector.SelectedBuilding.zSize > 1)
-                halfSize.z = (int)(BuildingSelector.SelectedBuilding.zSize / 2) - Tile.SIZE.z / 2;
+            if (building.xSize > 1)
+                halfSize.x = (int)(building.xSize / 2) - Tile.SIZE.x / 2;
+            if (building.zSize > 1)
+                halfSize.z = (int)(building.zSize / 2) - Tile.SIZE.z / 2;
             building.transform.position += halfSize;
 
-            Player.money -= building.cost;
+            Player.Instance.money -= building.cost;
 
-            audioSource.PlayOneShot(soundOnPlacement);
-            transform.position = building.transform.position;
-            particleSystem.Play();
-            GameCam.Instance.Shake();
+            if (useEffects) {
+                audioSource.PlayOneShot(soundOnPlacement);
+                transform.position = building.transform.position;
+                particleSystem.Play();
+                GameCam.Instance.Shake();
+            }
         }
 
-        private Tile[,] GetTilesAtMousePoint() {
-            Vector3 mousePoint = RaycastHelper.GetMousePositionInScene();
-            IntVector2 mouseCoordinate = new IntVector2((int)RoundDownToGridCoordinate(mousePoint).x, (int)RoundDownToGridCoordinate(mousePoint).y);
-            Tile[,] tiles = new Tile[BuildingSelector.SelectedBuilding.xSize, BuildingSelector.SelectedBuilding.zSize];
-
+        private Tile[,] GetTilesAt(Vector3 position, IntVector2 buildingSize) {
+            IntVector2 coordinate = new IntVector2((int)RoundDownToGridCoordinate(position).x, (int)RoundDownToGridCoordinate(position).y);
+            Tile[,] tiles = new Tile[buildingSize.x, buildingSize.z];
+            Debug.Log(coordinate);
             // get all tiles necessary for building:
-            IntVector2 coordinate = mouseCoordinate;
-            for (int x = 0; x < BuildingSelector.SelectedBuilding.xSize; x++) {
-                for (int z = 0; z < BuildingSelector.SelectedBuilding.zSize; z++) {
+            for (int x = 0; x < buildingSize.x; x++) {
+                for (int z = 0; z < buildingSize.z; z++) {
                     if (Company.Instance.grid.IsInsideGrid(coordinate.x + x, coordinate.z + z)) {
                         Tile t = Company.Instance.grid.Grid[coordinate.x + x, coordinate.z + z];
+                        Debug.Log(t);
                         tiles[x, z] = t;
                     } 
                 }
@@ -92,13 +116,13 @@ namespace CompanyView {
             return tiles;
         }
 
-        private bool CanBePlaced() {
-            if (tilesHoveringOver == null)
+        private bool CanBePlaced(Tile[,] tilesNeeded) {
+            if (tilesNeeded == null)
                 return false;
 
-            for (int x = 0; x < tilesHoveringOver.GetLength(0); x++) {
-                for (int z = 0; z < tilesHoveringOver.GetLength(1); z++) {
-                    if (tilesHoveringOver[x, z] == null || tilesHoveringOver[x, z].occupant != null)
+            for (int x = 0; x < tilesNeeded.GetLength(0); x++) {
+                for (int z = 0; z < tilesNeeded.GetLength(1); z++) {
+                    if (tilesNeeded[x, z] == null || tilesNeeded[x, z].occupant != null)
                         return false;
                 }
             }
