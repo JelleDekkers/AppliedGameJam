@@ -27,7 +27,7 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
         button = GetComponent<Button>();
         GetComponent<Image>().sprite = sprite;
 
-        Text text = statPrefab.GetComponent<Text>();
+        Text text = statPrefab.GetComponentInChildren<Text>();
         text.text = "Cost : $" + building.cost + ".-";
         SpriteState spriteState;
         spriteState.pressedSprite = clickedSprite;
