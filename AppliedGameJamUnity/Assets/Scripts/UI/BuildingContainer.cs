@@ -34,17 +34,19 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
         button.spriteState = spriteState;
 
         audioSource = GetComponent<AudioSource>();
-        clipSelect = Resources.Load<AudioClip>("Audio/Button_Press_4");
+        clipSelect = Resources.Load<AudioClip>("Audio/Button_Press_19");
         clipDeselect = Resources.Load<AudioClip>("Audio/Button_Press_5");
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (selected && !selectedPrefab.activeSelf) {
+            audioSource.PlayOneShot(clipSelect);
             selectedPrefab.SetActive(true);
         }
         else if (!selected && selectedPrefab.activeSelf) {
             selectedPrefab.SetActive(false);
+            audioSource.PlayOneShot(clipDeselect);
         }
     }
 

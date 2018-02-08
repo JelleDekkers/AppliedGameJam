@@ -33,10 +33,10 @@ namespace CompanyView.UI {
 
         // Update is called once per frame
         private void Update() {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0) {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 && myRect.localPosition.x < 0 ) {
                 myRect.position += new Vector3(scrollSpeed, 0, 0);
             }
-            else if (Input.GetAxis("Mouse ScrollWheel") < 0) {
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0 && myRect.localPosition.x > 0 - 100 * (buildingPrefabs.Length) + Screen.width) {
                 myRect.position -= new Vector3(scrollSpeed, 0, 0);
             }
         }
