@@ -1,23 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 14e7dda62cbc1e74d9587678113d0449
-timeCreated: 1518104042
-=======
-guid: d3f9f0a52ac4c654ea8ebb312fb4a808
-timeCreated: 1518095793
->>>>>>> 4ef439421f80ea7054ec6693e48e0db375cfde9e
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-<<<<<<< HEAD
     100002: group10
     100004: group11
-=======
-    100002: group4
-    100004: group9
->>>>>>> 4ef439421f80ea7054ec6693e48e0db375cfde9e
     100006: pCube306
     100008: pCube307
     100010: pCube308
@@ -123,17 +111,9 @@ ModelImporter:
     100210: transform56
     100212: transform57
     100214: transform58
-<<<<<<< HEAD
     400000: //RootNode
     400002: group10
     400004: group11
-=======
-    100216: group11
-    100218: group10
-    400000: //RootNode
-    400002: group4
-    400004: group9
->>>>>>> 4ef439421f80ea7054ec6693e48e0db375cfde9e
     400006: pCube306
     400008: pCube307
     400010: pCube308
@@ -239,7 +219,6 @@ ModelImporter:
     400210: transform56
     400212: transform57
     400214: transform58
-<<<<<<< HEAD
     2100000: lambert14
     2100002: lambert60
     2100004: lambert16
@@ -257,27 +236,6 @@ ModelImporter:
     2100028: lambert63
     2100030: lambert62
     2100032: lambert67
-=======
-    400216: group11
-    400218: group10
-    2100000: lambert16
-    2100002: lambert60
-    2100004: lambert1
-    2100006: lambert66
-    2100008: lambert69
-    2100010: lambert70
-    2100012: lambert68
-    2100014: lambert67
-    2100016: lambert58
-    2100018: lambert59
-    2100020: lambert61
-    2100022: lambert63
-    2100024: lambert62
-    2100026: lambert14
-    2100028: lambert15
-    2100030: lambert65
-    2100032: lambert64
->>>>>>> 4ef439421f80ea7054ec6693e48e0db375cfde9e
     2300000: pCube306
     2300002: pCube307
     2300004: pCube308
@@ -412,7 +370,6 @@ ModelImporter:
     3300128: pCylinder35
     3300130: pCylinder36
     3300132: pPlane1
-<<<<<<< HEAD
     4300000: pCube359
     4300002: pCube313
     4300004: pCylinder35
@@ -480,75 +437,6 @@ ModelImporter:
     4300128: pCube309
     4300130: pCube317
     4300132: pCube395
-=======
-    4300000: pCylinder33
-    4300002: pCylinder35
-    4300004: pCylinder36
-    4300006: pCube313
-    4300008: pCube314
-    4300010: pCube306
-    4300012: pCube307
-    4300014: pCube308
-    4300016: pCube309
-    4300018: pCube310
-    4300020: pCube312
-    4300022: pCube311
-    4300024: pCube315
-    4300026: pCube316
-    4300028: pCube317
-    4300030: pPlane1
-    4300032: pCube335
-    4300034: pCube359
-    4300036: pCube360
-    4300038: pCube361
-    4300040: pCube362
-    4300042: pCube363
-    4300044: pCube364
-    4300046: pCube365
-    4300048: pCube366
-    4300050: pCube367
-    4300052: pCube368
-    4300054: pCube369
-    4300056: pCube370
-    4300058: pCube371
-    4300060: pCube372
-    4300062: pCube373
-    4300064: pCube374
-    4300066: pCube375
-    4300068: pCube376
-    4300070: pCube377
-    4300072: pCube378
-    4300074: pCube379
-    4300076: pCube380
-    4300078: pCube381
-    4300080: pCube382
-    4300082: pCube383
-    4300084: pCube384
-    4300086: pCube385
-    4300088: pCube386
-    4300090: pCube387
-    4300092: pCube388
-    4300094: pCube389
-    4300096: pCube390
-    4300098: pCube391
-    4300100: pCube392
-    4300102: pCube393
-    4300104: pCube394
-    4300106: pCube395
-    4300108: pCube396
-    4300110: pCube397
-    4300112: pCube398
-    4300114: pCube399
-    4300116: pCube400
-    4300118: pCube401
-    4300120: pCube402
-    4300122: pCube403
-    4300124: pCube404
-    4300126: pCube405
-    4300128: pCube408
-    4300130: pCube409
-    4300132: pCube410
->>>>>>> 4ef439421f80ea7054ec6693e48e0db375cfde9e
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}
@@ -577,39 +465,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< HEAD
     clipAnimations: []
-=======
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      firstFrame: 2
-      lastFrame: 120
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
->>>>>>> 4ef439421f80ea7054ec6693e48e0db375cfde9e
     isReadable: 1
   meshes:
     lODScreenPercentages: []
