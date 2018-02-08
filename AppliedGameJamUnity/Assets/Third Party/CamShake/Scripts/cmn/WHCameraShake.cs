@@ -153,15 +153,15 @@ public class WHCameraShake : MonoBehaviour {
 			}
 		}
 	}
-#if UNITY_EDITOR
-	void OnEnable()
-	{
-		if( Application.isPlaying && shakeOnStart )
-		{
-			doShake();
-		}
-	}
-#endif
+//#if UNITY_EDITOR
+//	void OnEnable()
+//	{
+//		if( Application.isPlaying && shakeOnStart )
+//		{
+//			doShake();
+//		}
+//	}
+//#endif
 	public void doShake () {
 		curDelay	= delay;
 		axis		= posSpeed.normalized;
