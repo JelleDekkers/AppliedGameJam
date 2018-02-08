@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thumbnail: {fileID: 21300000, guid: 60c0425861f195c4eaa0f9104d1c0d41, type: 3}
   thumbnailClicked: {fileID: 21300000, guid: 58a3292517e718c47a8d42ea746a2d9e, type: 3}
-  cost: 0
+  cost: 5
   emission: 0
   xSize: 2
   zSize: 2

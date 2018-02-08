@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BuildingContainer : MonoBehaviour {
+public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler {
 
     public GameObject selectedPrefab;
+    private GameObject statPrefab;
     public bool selected = false;
     public Building building;
 
@@ -22,9 +23,12 @@ public class BuildingContainer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        statPrefab = transform.GetChild(1).gameObject;
         button = GetComponent<Button>();
         GetComponent<Image>().sprite = sprite;
 
+        Text text = statPrefab.GetComponent<Text>();
+        text.text = "Cost : $" + building.cost + ".-";
         SpriteState spriteState;
         spriteState.pressedSprite = clickedSprite;
         button.spriteState = spriteState;
@@ -42,5 +46,13 @@ public class BuildingContainer : MonoBehaviour {
         else if (!selected && selectedPrefab.activeSelf) {
             selectedPrefab.SetActive(false);
         }
+    }
+
+    public void OnPointerEnter( PointerEventData eventData ) {
+        statPrefab.SetActive(true);
+    }
+
+    public void OnPointerExit( PointerEventData eventData ) {
+        statPrefab.SetActive(false);
     }
 }
