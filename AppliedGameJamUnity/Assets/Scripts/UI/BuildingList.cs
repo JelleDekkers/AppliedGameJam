@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,8 @@ namespace CompanyView.UI {
     public class BuildingList : MonoBehaviour {
         public GameObject buttonPrefab;
         public Building[] buildingPrefabs;
-        public RectTransform myRect;
+        
+        private RectTransform myRect;
 
         public float scrollSpeed = 96;
 
@@ -19,9 +20,11 @@ namespace CompanyView.UI {
                 // CREATE BUTTON WITH SCRIPTABLE OBJECT PROPERTIES
                 GameObject obj = Instantiate<GameObject>(buttonPrefab);
                 obj.transform.SetParent(gameObject.transform);
-                obj.GetComponent<Image>().sprite = buildingPrefabs[i].gameObject.GetComponent<Image>().sprite;
+                BuildingContainer container = obj.GetComponent<BuildingContainer>();
+                container.sprite = buildingPrefabs[i].gameObject.GetComponent<Building>().thumbnail;
+                container.clickedSprite = buildingPrefabs[i].gameObject.GetComponent<Building>().thumbnailClicked;
+                container.building = buildingPrefabs[i];
                 obj.GetComponent<RectTransform>().position = new Vector2(48 + (i * 100), 48);
-                obj.GetComponent<BuildingContainer>().building = buildingPrefabs[i];
                 obj.GetComponent<Button>().onClick.AddListener(delegate () { Select(obj.GetComponent<BuildingContainer>()); });
             }
             myRect = GetComponent<RectTransform>();
@@ -38,10 +41,6 @@ namespace CompanyView.UI {
             }
         }
         private void Select(BuildingContainer building) {
-            if(BuildingSelector.SelectedBuilding == building) {
-            }
-            else {
-            }
             BuildingSelector.SetBuilding(building);
             
         }
