@@ -96,7 +96,7 @@ namespace CompanyView {
 
         private void PlaceBuilding(Building buildingPrefab, Tile[,] tiles, bool fromStart) {
             Building building = Instantiate(buildingPrefab, tiles[0, 0].transform.position, Quaternion.identity);
-            building.transform.SetParent(transform, true);
+            building.transform.SetParent(transform);
 
             foreach (Tile t in tiles)
                 t.occupant = building;
@@ -110,13 +110,13 @@ namespace CompanyView {
 
             Player.Instance.AddBuilding(building);
 
-            //if (!fromStart) {
-            //    Player.Instance.RemoveResources(building.cost);
-            //    audioSource.PlayOneShot(soundOnPlacement);
-            //    transform.position = building.transform.position;
-            //    particleSystem.Play();
-            //    GameCam.Instance.Shake();
-            //}
+            if (!fromStart) {
+                Player.Instance.RemoveResources(building.cost);
+                audioSource.PlayOneShot(soundOnPlacement);
+                //transform.position = building.transform.position;
+                particleSystem.Play();
+                GameCam.Instance.Shake();
+            }
         }
 
         private Tile[,] GetTilesAt(Vector3 position, IntVector2 buildingSize) {
