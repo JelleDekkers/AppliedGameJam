@@ -20,7 +20,7 @@ public class GameCam : MonoBehaviour {
     private RaycastHit hit;
 
     private void Start() {
-        shaker = GetComponent<WHCameraShake>();
+        shaker = FindObjectOfType<WHCameraShake>();
     }
 
     public void Shake() {

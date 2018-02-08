@@ -32,7 +32,7 @@ namespace CompanyView {
 
                 Tile[,] tilesNeeded = GetTilesAt(rndPos, new IntVector2(starterBuildings[i].xSize, starterBuildings[i].zSize));
                 if (CanBePlaced(tilesNeeded))
-                    PlaceBuilding(starterBuildings[i], tilesNeeded, false);
+                    PlaceBuilding(starterBuildings[i], tilesNeeded, true);
                 else
                     i--;
             }
@@ -53,7 +53,7 @@ namespace CompanyView {
 
             AdjustTileColors();
             if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver))
-                PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, true);
+                PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, false);
         }
 
         private void AdjustTileColors() {
@@ -75,7 +75,7 @@ namespace CompanyView {
             }
         }
 
-        private void PlaceBuilding(Building buildingPrefab, Tile[,] tiles, bool useEffects) {
+        private void PlaceBuilding(Building buildingPrefab, Tile[,] tiles, bool fromStart) {
             Building building = Instantiate(buildingPrefab, tiles[0, 0].transform.position, Quaternion.identity);
 
             foreach (Tile t in tiles)
@@ -88,9 +88,9 @@ namespace CompanyView {
                 halfSize.z = (int)(building.zSize / 2) - Tile.SIZE.z / 2;
             building.transform.position += halfSize;
 
-            Player.Instance.money -= building.cost;
 
-            if (useEffects) {
+            if (!fromStart) {
+                Player.Instance.money -= building.cost;
                 audioSource.PlayOneShot(soundOnPlacement);
                 transform.position = building.transform.position;
                 particleSystem.Play();
@@ -101,13 +101,11 @@ namespace CompanyView {
         private Tile[,] GetTilesAt(Vector3 position, IntVector2 buildingSize) {
             IntVector2 coordinate = new IntVector2((int)RoundDownToGridCoordinate(position).x, (int)RoundDownToGridCoordinate(position).y);
             Tile[,] tiles = new Tile[buildingSize.x, buildingSize.z];
-            Debug.Log(coordinate);
             // get all tiles necessary for building:
             for (int x = 0; x < buildingSize.x; x++) {
                 for (int z = 0; z < buildingSize.z; z++) {
                     if (Company.Instance.grid.IsInsideGrid(coordinate.x + x, coordinate.z + z)) {
                         Tile t = Company.Instance.grid.Grid[coordinate.x + x, coordinate.z + z];
-                        Debug.Log(t);
                         tiles[x, z] = t;
                     } 
                 }
