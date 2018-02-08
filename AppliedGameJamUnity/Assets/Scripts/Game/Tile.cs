@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour {
     public static readonly Vector3 SIZE = new Vector3(1, 0.1f, 1);
 
     public Building occupant;
+    public IntVector2 Coordinates { get; set; }
 
     [SerializeField]
     private Color occupiedColor, openColor;

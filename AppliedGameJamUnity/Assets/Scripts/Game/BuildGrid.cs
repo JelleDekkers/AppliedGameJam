@@ -17,7 +17,7 @@ namespace CompanyView {
 
         public bool showGridLines;
 
-        private void Start() {
+        private void Awake() {
             Fill();
         }
 
@@ -30,6 +30,7 @@ namespace CompanyView {
             for (int x = 0; x < xSize; x++) {
                 for (int z = 0; z < zSize; z++) {
                     Tile t = Instantiate(tilePrefab, new Vector3(x, 0, z), Quaternion.identity, transform);
+                    t.Coordinates = new IntVector2(x, z);
                     t.name += "(" + x + "," + z + ")";
                     Grid[x, z] = t;
                     //if ((x + z) % 2 == 0)

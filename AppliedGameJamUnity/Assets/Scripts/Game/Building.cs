@@ -27,12 +27,12 @@ public class Building : MonoBehaviour {
     }
 
     public bool CanBeBought() {
-        return Player.money >= cost;
+        return Player.Instance.money >= cost;
     }
 
     private void Production() {
         WorldStats.Instance.WorldPollution += emissionPerProduction;
-        Player.money += revenuePerProduction;
-        Player.pollutionProduced += emissionPerProduction;
+        Player.Instance.money += revenuePerProduction;
+        Player.Instance.pollutionProduced += emissionPerProduction;
     }
 }
