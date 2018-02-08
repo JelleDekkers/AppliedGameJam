@@ -5,16 +5,16 @@ using UnityEngine;
 public class Building : MonoBehaviour {
     public Sprite thumbnail;
     public Sprite thumbnailClicked;
-    public float cost;
+    public GameResource cost;
+    public int xSize, zSize = 1;
     public float emissionPerProduction;
-    public int xSize, zSize;
-    public float revenuePerProduction;
-    public float revenueTimeInSeconds;
+    public GameResource productionPerCycle;
+    public float productionTimeInSeconds;
 
     private float revenueTimer;
 
     private void Start() {
-        revenueTimer = revenueTimeInSeconds;
+        revenueTimer = productionTimeInSeconds;
     }
 
     private void Update() {
@@ -22,17 +22,17 @@ public class Building : MonoBehaviour {
             revenueTimer -= Time.deltaTime;
         } else {
             Production();
-            revenueTimer = revenueTimeInSeconds;
+            revenueTimer = productionTimeInSeconds;
         }
     }
 
     public bool CanBeBought() {
-        return Player.Instance.money >= cost;
+        return Player.Instance.HasResources(cost);
     }
 
     private void Production() {
         WorldStats.Instance.WorldPollution += emissionPerProduction;
-        Player.Instance.money += revenuePerProduction;
+        Player.Instance.AddResource(productionPerCycle);
         Player.Instance.pollutionProduced += emissionPerProduction;
     }
 }

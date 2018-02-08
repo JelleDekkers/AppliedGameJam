@@ -1865,7 +1865,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thumbnail: {fileID: 21300000, guid: 9ec971f93c48da1479f2659da194230a, type: 3}
   thumbnailClicked: {fileID: 21300000, guid: e1ceb583a71f0714ab53597b74a90b01, type: 3}
-  cost: 3
-  emission: 0
+  cost:
+    resourceType: 1
+    amount: 10
   xSize: 1
   zSize: 1
+  emissionPerProduction: 0
+  productionPerCycle:
+    resourceType: 0
+    amount: 10
+  productionTimeInSeconds: 20

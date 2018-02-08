@@ -110,7 +110,7 @@ namespace CompanyView {
             Player.Instance.AddBuilding(building);
 
             if (!fromStart) {
-                Player.Instance.money -= building.cost;
+                Player.Instance.RemoveResources(building.cost);
                 audioSource.PlayOneShot(soundOnPlacement);
                 transform.position = building.transform.position;
                 particleSystem.Play();
