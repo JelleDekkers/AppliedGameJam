@@ -8,6 +8,13 @@ namespace CompanyView {
 
         private Tile[,] tilesHoveringOver;
 
+        [SerializeField]
+        private AudioClip soundOnPlacement;
+        [SerializeField]
+        private new ParticleSystem particleSystem;
+        [SerializeField]
+        private AudioSource audioSource;
+
         private void Update() {
             if(BuildingSelector.SelectedBuilding != null)
                 PlaceMode();
@@ -57,6 +64,13 @@ namespace CompanyView {
             if(BuildingSelector.SelectedBuilding.zSize > 1)
                 halfSize.z = (int)(BuildingSelector.SelectedBuilding.zSize / 2) - Tile.SIZE.z / 2;
             building.transform.position += halfSize;
+
+            Player.money -= building.cost;
+
+            audioSource.PlayOneShot(soundOnPlacement);
+            transform.position = building.transform.position;
+            particleSystem.Play();
+            GameCam.Instance.Shake();
         }
 
         private Tile[,] GetTilesAtMousePoint() {

@@ -6,11 +6,12 @@ public class Building : MonoBehaviour {
     public Sprite thumbnail;
     public Sprite thumbnailClicked;
     public float cost;
-    public float emission;
+    public float emissionPerProduction;
     public int xSize, zSize;
     public float revenuePerProduction;
     public float revenueTimeInSeconds;
-    public float revenueTimer;
+
+    private float revenueTimer;
 
     private void Start() {
         revenueTimer = revenueTimeInSeconds;
@@ -20,7 +21,7 @@ public class Building : MonoBehaviour {
         if(revenueTimer > 0) {
             revenueTimer -= Time.deltaTime;
         } else {
-            Productie();
+            Production();
             revenueTimer = revenueTimeInSeconds;
         }
     }
@@ -29,9 +30,9 @@ public class Building : MonoBehaviour {
         return Player.money >= cost;
     }
 
-    private void Productie() {
-        WorldStats.Pollution += emission;
+    private void Production() {
+        WorldStats.Instance.WorldPollution += emissionPerProduction;
         Player.money += revenuePerProduction;
-        Player.pollutionProduced += emission;
+        Player.pollutionProduced += emissionPerProduction;
     }
 }
