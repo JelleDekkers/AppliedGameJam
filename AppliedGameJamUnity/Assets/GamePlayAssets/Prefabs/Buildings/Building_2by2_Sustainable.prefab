@@ -2592,8 +2592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 21300000, guid: f176dca977ba66442b7e712bb81328ef, type: 3}
-  thumbnailClicked: {fileID: 21300000, guid: a617e663a3a3c9a48b92ec6481aedca0, type: 3}
+  thumbnail: {fileID: 21300000, guid: 60c0425861f195c4eaa0f9104d1c0d41, type: 3}
+  thumbnailClicked: {fileID: 21300000, guid: 58a3292517e718c47a8d42ea746a2d9e, type: 3}
   cost: 0
   emission: 0
   xSize: 2
