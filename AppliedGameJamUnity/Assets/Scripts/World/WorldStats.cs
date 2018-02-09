@@ -18,6 +18,7 @@ public class WorldStats : MonoBehaviour {
     public float AverageWorldTemperatureStart = 20f;
     public float TemperatureIncreasePerPollution = 0.01f;
     public float TemperatureMaxGameOverRate = 40f;
+    public GameObject gameOverScreen;
 
     private void Start() {
         DontDestroyOnLoad(gameObject);
@@ -29,5 +30,8 @@ public class WorldStats : MonoBehaviour {
 
         if (AverageWorldTemperature > TemperatureMaxGameOverRate)
             GameManager.GameWon();
+        if(AverageWorldTemperature > 40) {
+            gameOverScreen.SetActive(true);
+        }
     }
 }

@@ -72,7 +72,6 @@ namespace CompanyView {
             if (tilesHoveringOver == null)
                 return;
 
-            AdjustTileColors();
             if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver) && BuildingSelector.SelectedBuilding.CanBeBought())
                 PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, false);
         }
@@ -81,6 +80,8 @@ namespace CompanyView {
             BuildingSelector.SetToNull();
             bool isHitting = true;
             RaycastHelper.GetMousePositionInScene(out isHitting);
+            if (tilesHoveringOver != null)
+                RevertTileColorsToBase();
 
             if (isHitting == false)
                 return;
@@ -88,7 +89,9 @@ namespace CompanyView {
                 tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(out isHitting), new IntVector2(1, 1));
                 if (Input.GetMouseButtonDown(0) && tilesHoveringOver != null && tilesHoveringOver[0, 0].occupant != null)
                     DestroyBuilding(tilesHoveringOver[0, 0]);
-            }catch {
+                AdjustTileColors();
+            }
+            catch {
 
             }
         }
