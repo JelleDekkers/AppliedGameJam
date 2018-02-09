@@ -81,15 +81,18 @@ namespace CompanyView {
             BuildingSelector.SetToNull();
             bool isHitting = true;
             RaycastHelper.GetMousePositionInScene(out isHitting);
-
+            if (tilesHoveringOver != null)
+                RevertTileColorsToBase();
 
             if (isHitting == false)
                 return;
             try {
                 tilesHoveringOver = GetTilesAt(RaycastHelper.GetMousePositionInScene(out isHitting), new IntVector2(1, 1));
+                AdjustTileColors();
                 if (Input.GetMouseButtonDown(0) && tilesHoveringOver != null && tilesHoveringOver[0, 0].occupant != null)
                     DestroyBuilding(tilesHoveringOver[0, 0]);
-            }catch {
+            }
+            catch {
 
             }
         }
