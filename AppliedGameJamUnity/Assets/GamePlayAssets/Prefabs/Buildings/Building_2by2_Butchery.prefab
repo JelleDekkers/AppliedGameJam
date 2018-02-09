@@ -1241,6 +1241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4800079794712728}
   - component: {fileID: 95176703865752840}
+  - component: {fileID: 114701557597432856}
   m_Layer: 0
   m_Name: Building_2by2_Butchery
   m_TagString: Untagged
@@ -5903,3 +5904,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114701557597432856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679501263420576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thumbnail: {fileID: 21300000, guid: 19bf4bb1e15d2df4c89fb2bd09d05b45, type: 3}
+  thumbnailClicked: {fileID: 21300000, guid: 19bf4bb1e15d2df4c89fb2bd09d05b45, type: 3}
+  cost:
+    resourceType: 0
+    amount: 25
+  xSize: 2
+  zSize: 2
+  emissionPerProduction: 30
+  productionPerCycle:
+    resourceType: 0
+    amount: 25
+  productionTimeInSeconds: 20
