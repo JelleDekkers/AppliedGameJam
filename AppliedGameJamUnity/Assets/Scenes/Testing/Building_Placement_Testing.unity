@@ -3075,7 +3075,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: a74b36b4bb0b59d49aff84bb11cd9ef6, type: 3}
+      objectReference: {fileID: 8300000, guid: b95ba3cbdd1eccc4896966bd588cdde7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c3a75722a1894243840eddff2c991f6, type: 2}
   m_IsPrefabParent: 0
@@ -4488,7 +4488,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8300000, guid: 357cd948da589e74a96fa39212c46920, type: 3}
+      objectReference: {fileID: 8300000, guid: 03ebeaec05ccbe347b314544a7aee9f6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e492fcb6a4f6e8a4e9ae17868b0b1924, type: 2}
   m_IsPrefabParent: 0
