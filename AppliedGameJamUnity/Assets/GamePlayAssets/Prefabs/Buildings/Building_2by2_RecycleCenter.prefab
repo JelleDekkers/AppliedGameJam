@@ -7680,8 +7680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffa539d943a9044194296a0a7bea708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 0}
-  thumbnailClicked: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: f0cc3b94526548f4eade7eb93a991ece, type: 3}
+  thumbnailClicked: {fileID: 21300000, guid: e507478cbcb79ea4eabfd8675e0ee914, type: 3}
   cost:
     resourceType: 2
     amount: 10
