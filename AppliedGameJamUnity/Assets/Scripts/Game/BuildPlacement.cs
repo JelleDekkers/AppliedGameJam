@@ -73,7 +73,7 @@ namespace CompanyView {
                 return;
 
             AdjustTileColors();
-            if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver))
+            if (Input.GetMouseButtonDown(0) && CanBePlaced(tilesHoveringOver) && BuildingSelector.SelectedBuilding.CanBeBought())
                 PlaceBuilding(BuildingSelector.SelectedBuilding, tilesHoveringOver, false);
         }
 
