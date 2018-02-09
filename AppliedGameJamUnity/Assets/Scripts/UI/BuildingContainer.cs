@@ -14,7 +14,7 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
     public Sprite sprite;
     public Sprite clickedSprite;
 
-    public Text costTxt, productionTxt;
+    public Text costTxt, productionTxt, emissionTxt;
 
     private Button button;
     private AudioSource audioSource;
@@ -30,6 +30,7 @@ public class BuildingContainer : MonoBehaviour, IPointerEnterHandler,IPointerExi
 
         costTxt.text = "Cost: " + building.cost.amount + " " + building.cost.resourceType.ToString();
         productionTxt.text = "Produces: " + building.productionPerCycle.amount + " " + building.productionPerCycle.resourceType.ToString();
+        emissionTxt.text = "Emission: " + building.emissionPerProduction;
         SpriteState spriteState;
         spriteState.pressedSprite = clickedSprite;
         button.spriteState = spriteState;
