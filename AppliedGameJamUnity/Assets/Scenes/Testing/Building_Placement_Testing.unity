@@ -2095,7 +2095,7 @@ Prefab:
         type: 2}
       propertyPath: starterBuildings.Array.data[1]
       value: 
-      objectReference: {fileID: 114701557597432856, guid: 2d0472b4c2af66d4fb700d5e6936b1c7,
+      objectReference: {fileID: 114945837603091720, guid: 2d0472b4c2af66d4fb700d5e6936b1c7,
         type: 2}
     - target: {fileID: 114643447400779812, guid: 135338c6e620612418fcbe0a77c41d99,
         type: 2}
@@ -3397,7 +3397,7 @@ Prefab:
         type: 2}
       propertyPath: buildingPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 114701557597432856, guid: 2d0472b4c2af66d4fb700d5e6936b1c7,
+      objectReference: {fileID: 114945837603091720, guid: 2d0472b4c2af66d4fb700d5e6936b1c7,
         type: 2}
     - target: {fileID: 114742254625942444, guid: fc917800f8a3a8b44a998c7e3007ecb2,
         type: 2}
