@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657785, g: 0.49641418, b: 0.5748165, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2626,13 +2626,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1215858133}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.09233855, y: -0.88441044, z: 0.41240743, w: -0.19802032}
   m_LocalPosition: {x: -1.4877663, y: -0.30201626, z: -2.3508573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 921581745}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50.000004, y: -205.241, z: 0}
 --- !u!1 &1236898200
 GameObject:
   m_ObjectHideFlags: 0
@@ -4061,7 +4061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cc48a0e1515d649b6aec5c1d532a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSize: 25
+  xSize: 26
   zSize: 25
   tilePrefab: {fileID: 114735127431446254, guid: b8c1d204b3ac488419d642c8d3358d56,
     type: 2}

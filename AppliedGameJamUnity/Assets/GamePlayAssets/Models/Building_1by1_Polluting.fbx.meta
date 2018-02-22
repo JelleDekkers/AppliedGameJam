@@ -37,6 +37,8 @@ ModelImporter:
     100058: transform42
     100060: transform43
     100062: TE5
+    100064: Logo
+    100066: Mesh6
     400000: //RootNode
     400002: group6
     400004: group7
@@ -69,6 +71,8 @@ ModelImporter:
     400058: transform42
     400060: transform43
     400062: TE5
+    400064: Logo
+    400066: Mesh6
     2100000: lambert1
     2100002: lambert31
     2100004: lambert34
@@ -97,6 +101,8 @@ ModelImporter:
     2300034: polySurface30
     2300036: polySurface31
     2300038: TE5
+    2300040: Logo
+    2300042: Mesh6
     3300000: pCube197
     3300002: pCube198
     3300004: pCube199
@@ -117,6 +123,8 @@ ModelImporter:
     3300034: polySurface30
     3300036: polySurface31
     3300038: TE5
+    3300040: Logo
+    3300042: Mesh6
     4300000: polySurface29
     4300002: polySurface30
     4300004: polySurface20
@@ -137,6 +145,8 @@ ModelImporter:
     4300034: pCube210
     4300036: pCube211
     4300038: TE5
+    4300040: Logo
+    4300042: Mesh6
     9500000: //RootNode
   externalObjects: {}
   materials:

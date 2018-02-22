@@ -45,6 +45,7 @@ ModelImporter:
     100074: transform49
     100076: transform50
     100078: TE5
+    100080: SolarPanel
     400000: //RootNode
     400002: pCube175
     400004: pCube176
@@ -85,6 +86,7 @@ ModelImporter:
     400074: transform49
     400076: transform50
     400078: TE5
+    400080: SolarPanel
     2100000: lambert27
     2100002: lambert26
     2100004: lambert25
